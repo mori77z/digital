@@ -92,8 +92,7 @@ nav a.active {
 }
 
 .info {
-    height: auto;
-    font-size: 12px;
+    height: 100px;
 }
 
 .info h2 {
@@ -118,6 +117,19 @@ nav a.active {
     height: 100%;
     object-fit: cover;
     cursor: pointer;
+}
+.iframe-container {
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; 
+  position: relative;
+}
+
+.iframe-container iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none; 
 }
 
 .arrows-wrapper {
@@ -164,19 +176,7 @@ nav a.active {
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
 }
-.iframe-container {
-  width: 100%; /* oder feste Breite z.B. 400px */
-  height: 0;
-  padding-bottom: 75%; /* Für ein 4:3 Seitenverhältnis, passe das nach Bedarf an */
-  position: relative;
-}
 
-.iframe-container iframe {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border: none; /* optional: entfernt den Rahmen des iframes */
-}
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #fc4022;
