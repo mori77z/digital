@@ -70,7 +70,6 @@ nav a.active {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    width: 100%;
 }
 .combined-container {
     display: flex;
@@ -162,7 +161,6 @@ nav a.active {
     font-style: italic;
     padding-left: 10px;
     margin-top: 5px;
-    width: 100%;
 }
     
 .zoomed-container {
