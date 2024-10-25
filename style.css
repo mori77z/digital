@@ -142,12 +142,13 @@ nav a.active {
     justify-content: left;
     align-items: center;
     gap: 6px;
+    margin-top: 2px;
     padding: 10px 10px 0;
-    overflow: visible;
 }
 
 .arrows .arrow {
     font-size: 36px;
+    line-height: 32px;
     cursor: pointer;
 }
 
