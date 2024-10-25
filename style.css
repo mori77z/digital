@@ -69,7 +69,7 @@ nav a.active {
 .main-container {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 40px;
     width: 100%;
 }
 .combined-container {
@@ -149,7 +149,7 @@ nav a.active {
 
 .arrows .arrow {
     font-size: 36px;
-    line-height: 26px;
+    line-height: 32px;
     cursor: pointer;
 }
 
