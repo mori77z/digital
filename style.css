@@ -1,0 +1,197 @@
+body {
+    width: 100%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    font-family: Helvetica, 'DM Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    overflow: visible;
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 36px;
+    color: black;
+    font-family: Helvetica, sans-serif;
+    margin: 0;
+    white-space: nowrap;
+    box-sizing: border-box; 
+}
+
+h1 a {
+    text-decoration: none;
+    color: black;
+}
+
+h1 a:hover {
+    font-family: Georgia, serif;
+    text-decoration: underline;
+    font-style: italic;
+    padding-right: 4px;
+}
+
+nav {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+nav a {
+    font-size: 20px;
+    line-height: 22px;
+    text-decoration: underline;
+    color: black;
+    cursor: pointer;
+}
+
+nav a:hover {
+    font-family: Georgia, serif;
+    font-style: italic;
+}
+
+nav a.active {
+    font-family: Georgia, serif;
+    font-style: italic;
+    text-decoration: underline; 
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.content {
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    gap: 10px;
+    margin-left: 10px;
+    overflow-x: auto; 
+    white-space: nowrap; 
+    max-width: 100%;
+}
+
+.scroll-box {
+    align-items: flex-start;
+    height: auto;
+    width: 400px;
+    text-align: left;
+    flex: 0 0 auto;
+}
+
+.info {
+    height: auto;
+    font-size: 12px;
+}
+
+.info h2 {
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.info p {
+    margin: 5px 0;
+}
+
+.img-container {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.arrows-wrapper {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    margin-top: 2px;
+    padding-left: 10px;
+    overflow: visible;
+}
+
+.arrows .arrow {
+    font-size: 36px;
+    line-height: 32px;
+    cursor: pointer;
+}
+
+.arrow_left, .arrow_right {
+    color: black;
+}
+
+.zoomed-container {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.zoomed-container.active {
+    display: flex;
+}
+
+.zoomed-image {
+    max-width: 70vw;
+    max-height: 70vh;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+.iframe-container {
+  width: 100%; /* oder feste Breite z.B. 400px */
+  height: 0;
+  padding-bottom: 75%; /* Für ein 4:3 Seitenverhältnis, passe das nach Bedarf an */
+  position: relative;
+}
+
+.iframe-container iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none; /* optional: entfernt den Rahmen des iframes */
+}
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #fc4022;
+    }
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 48px;
+    }
+    .zoomed-image {
+    max-width: 70vw;
+    max-height: 70vw;
+    }
+    .scroll-box {
+        width: 600px;
+        height: auto;
+    } 
