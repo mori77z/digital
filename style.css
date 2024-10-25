@@ -72,12 +72,11 @@ nav a.active {
     gap: 30px;
     width: 100%;
 }
-
-.scroll-content-wrapper {
+.combined-container {
     display: flex;
     flex-direction: column;
+    gap: 0;
 }
-
 .content {
     display: flex;
     justify-content: left;
@@ -162,8 +161,9 @@ nav a.active {
     font-family: Helvetica, sans-serif;
     font-style: italic;
     padding-left: 10px;
-    width: 100%; /* Ensure description takes full width */
-}}
+    margin-top: 5px;
+    width: 100%;
+}
     
 .zoomed-container {
     position: fixed; 
