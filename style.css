@@ -131,7 +131,10 @@ nav a.active {
   height: 100%;
   border: none; 
 }
-
+.arrow-text-container {
+    display: flex;
+    flex-direction: column;
+}
 .arrows-wrapper {
     display: flex;
     justify-content: left;
