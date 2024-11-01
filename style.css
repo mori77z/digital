@@ -199,61 +199,6 @@ body {
     height: 100vh; /* Full viewport height */
 }
 
-#board {
-    display: flex;
-    font-size: 3rem; /* Larger font size for visibility */
-    letter-spacing: 0.1em;
-}
-
-.flap {
-    position: relative;
-    display: inline-block;
-    width: 1em; /* Fixed width for digits */
-    height: 1.5em; /* Height for digits */
-    overflow: hidden;
-    background: #222; /* Dark background for each digit */
-    border: 1px solid #555; /* Minimal border */
-    margin: 0 0.05em;
-    text-align: center;
-}
-
-.flap::before,
-.flap::after {
-    content: attr(data-char);
-    position: absolute;
-    width: 100%;
-    height: 50%;
-    left: 0;
-    background: #111; /* Darker background for flipping effect */
-    transition: transform 0.5s; /* Transition for flipping */
-}
-
-.flap::before {
-    top: 0;
-    transform-origin: bottom;
-}
-
-.flap::after {
-    bottom: 0;
-    transform-origin: top;
-    transform: rotateX(90deg); /* Start rotated */
-}
-
-.flap.flip::before {
-    transform: rotateX(90deg); /* Flip up */
-}
-
-.flap.flip::after {
-    transform: rotateX(0); /* Flip down */
-}
-
-#finalText {
-    font-size: 2rem;
-    margin-top: 1em; /* Space above the final text */
-    text-align: center; /* Center align the text */
-    color: #00ff00; /* Same color for consistency */
-}
-
 /* @media (prefers-color-scheme: dark) {
     body {
         background-color: #fc4022;
