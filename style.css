@@ -188,24 +188,32 @@ nav a.active {
     transition: transform 0.3s ease-in-out;
 }
 
+body {
+    background-color: #000; /* Black background for contrast */
+    color: #00ff00; /* Green text color */
+    font-family: monospace; /* Monospace font for a digital feel */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+}
+
 #board {
     display: flex;
-    font-size: 2rem; /* Using rem for responsiveness */
-    color: #00ff00;
+    font-size: 3rem; /* Larger font size for visibility */
     letter-spacing: 0.1em;
-    cursor: pointer;
 }
 
 .flap {
     position: relative;
     display: inline-block;
-    width: 1em;
-    height: 1.2em;
+    width: 1em; /* Fixed width for digits */
+    height: 1.5em; /* Height for digits */
     overflow: hidden;
-    background: #222;
-    border: 1px solid #555; /* 1px border */
+    background: #222; /* Dark background for each digit */
+    border: 1px solid #555; /* Minimal border */
     margin: 0 0.05em;
-    color: #00ff00;
     text-align: center;
 }
 
@@ -216,36 +224,34 @@ nav a.active {
     width: 100%;
     height: 50%;
     left: 0;
-    background: #111;
-    overflow: hidden;
-    transition: transform 0.2s;
+    background: #111; /* Darker background for flipping effect */
+    transition: transform 0.5s; /* Transition for flipping */
 }
 
 .flap::before {
     top: 0;
-    border-bottom: 1px solid #555;
     transform-origin: bottom;
 }
 
 .flap::after {
     bottom: 0;
-    border-top: 1px solid #555;
     transform-origin: top;
-    transform: rotateX(90deg);
+    transform: rotateX(90deg); /* Start rotated */
 }
 
 .flap.flip::before {
-    transform: rotateX(90deg);
+    transform: rotateX(90deg); /* Flip up */
 }
 
 .flap.flip::after {
-    transform: rotateX(0);
+    transform: rotateX(0); /* Flip down */
 }
 
 #finalText {
     font-size: 2rem;
-    color: #00ff00;
-    margin-top: 1em; /* Add some spacing above the text */
+    margin-top: 1em; /* Space above the final text */
+    text-align: center; /* Center align the text */
+    color: #00ff00; /* Same color for consistency */
 }
 
 /* @media (prefers-color-scheme: dark) {
