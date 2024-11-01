@@ -190,28 +190,27 @@ nav a.active {
 
 #board {
     display: flex;
-    font-size: 20px; /* Textgröße in Pixel */
+    font-size: 2rem; /* Using rem for responsiveness */
     color: #00ff00;
     letter-spacing: 0.1em;
     cursor: pointer;
-    margin-top: 20px; /* Abstand zur Anzeigetafel */
 }
 
 .flap {
     position: relative;
     display: inline-block;
-    width: 2em; /* Breite der Boxen */
-    height: 2.4em; /* Höhe der Boxen */
+    width: 1em;
+    height: 1.2em;
     overflow: hidden;
     background: #222;
-    border: 1px solid #555; /* 1px Rahmen */
+    border: 1px solid #555; /* 1px border */
     margin: 0 0.05em;
     color: #00ff00;
     text-align: center;
-    font-size: 1.2em; /* Schriftgröße in der Box */
 }
 
-.flap::before, .flap::after {
+.flap::before,
+.flap::after {
     content: attr(data-char);
     position: absolute;
     width: 100%;
@@ -244,10 +243,9 @@ nav a.active {
 }
 
 #finalText {
-    font-size: 20px;
-    color: black; 
-    margin-top: 20px;
-    display: none; 
+    font-size: 2rem;
+    color: #00ff00;
+    margin-top: 1em; /* Add some spacing above the text */
 }
 
 /* @media (prefers-color-scheme: dark) {
