@@ -84,7 +84,7 @@ function flipFlaps(text) {
         // Animation hinzufügen
         setTimeout(() => {
             flap.classList.add("flip");
-            setTimeout(() => flap.classList.remove("flip"), 300); // Animation zurücksetzen
+            setTimeout(() => flap.classList.remove("flip"), 300);
         }, 100); // Verzögerung für die Animation
     });
 }
@@ -99,30 +99,16 @@ function showFinalText() {
 // Startanimation
 flipFlaps(binaryCode); // Binärcode anzeigen
 
-// Wechsel zwischen Binärcode und endgültigem Text bei Scrollen
-let isTextVisible = false; // Status, ob der finale Text angezeigt wird
-let lastScrollTop = 0; // Letzte Scroll-Position
-
-window.addEventListener("scroll", () => {
-    const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    // Wenn nach unten gescrollt wird
-    if (currentScrollTop > lastScrollTop) {
-        if (!isTextVisible) {
-            showFinalText();
-            isTextVisible = true; // Status aktualisieren
-        }
-    } else { // Wenn nach oben gescrollt wird
-        if (isTextVisible) {
-            board.style.display = 'flex'; // Anzeigetafel wieder anzeigen
-            finalTextDiv.style.display = 'none'; // Finalen Text ausblenden
-            flipFlaps(binaryCode); // Binärcode erneut anzeigen
-            isTextVisible = false; // Status aktualisieren
-        }
+// Wechsel zwischen Binärcode und endgültigem Text alle 10 Sekunden
+setInterval(() => {
+    if (board.innerHTML) {
+        showFinalText();
+    } else {
+        board.style.display = 'flex'; // Anzeigetafel wieder anzeigen
+        finalTextDiv.style.display = 'none'; // Finalen Text ausblenden
+        flipFlaps(binaryCode);
     }
-
-    lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // Für mobile oder negative Scroll-Positionen
-});
+}, 10000); // Alle 10 Sekunden
 
 // Optional: Bei Klick auf die Anzeigetafel die Animation sofort auslösen
 board.addEventListener("click", () => {
