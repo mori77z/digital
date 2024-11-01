@@ -188,87 +188,84 @@ nav a.active {
     transition: transform 0.3s ease-in-out;
 }
 
-#board-container {
-    width: 100%;
-    justify-content: center;
-    padding: 10px;
-}
-
 #board {
     display: flex;
     flex-wrap: wrap; /* Allows content to wrap to new rows */
     font-size: 5vw; /* Responsive font size */
     letter-spacing: 0.05em;
     max-width: 90vw; /* Keeps board width contained */
-    justify-content: center;
+    justify-content: center; /* Centers the flaps */
 }
 
 .flap {
     position: relative;
     display: inline-block;
-    width: 1em;
-    height: 1.2em;
-    overflow: hidden;
-    background: #000;
-    border: 1px solid #555;
-    margin: 0 0.05em;
-    color: #000; /* Set text to black */
-    text-align: center;
+    width: 1em; /* Width of the flap */
+    height: 1.2em; /* Height of the flap */
+    overflow: hidden; /* Hides overflowing content */
+    background: #000; /* Background color */
+    border: 1px solid #555; /* Border around flap */
+    margin: 0 0.05em; /* Margin between flaps */
+    color: #000; /* Text color (black) */
+    text-align: center; /* Center text */
 }
 
 /* Upper and lower halves of each flap */
-.flap::before,
-.flap::after {
-    content: attr(data-char);
+.flap::before {
+    content: attr(data-char); /* Character content */
     position: absolute;
     width: 100%;
-    height: 50%;
+    height: 50%; /* Takes up half the height */
     left: 0;
-    background: #000;
-    color: #000; /* Text color black */
-    overflow: hidden;
-    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1); /* Smooth transition */
-    backface-visibility: hidden; /* Prevents back face flicker */
-}
-
-.flap::before {
-    top: 0;
-    border-bottom: 1px solid #555;
-    transform-origin: bottom;
+    background: #000; /* Background color */
+    color: #000; /* Text color */
+    overflow: hidden; /* Hides overflow */
+    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1); /* Animation timing */
+    backface-visibility: hidden; /* Prevent flicker */
+    top: 0; /* Position at the top */
+    border-bottom: 1px solid #555; /* Optional border for separation */
+    transform-origin: bottom; /* Pivot point for flip */
 }
 
 .flap::after {
-    bottom: 0;
-    border-top: 1px solid #555;
-    transform-origin: top;
-    transform: rotateX(90deg);
+    content: attr(data-char); /* Character content */
+    position: absolute;
+    width: 100%;
+    height: 50%; /* Takes up half the height */
+    left: 0;
+    background: #000; /* Background color */
+    color: #000; /* Text color */
+    overflow: hidden; /* Hides overflow */
+    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1); /* Animation timing */
+    backface-visibility: hidden; /* Prevent flicker */
+    bottom: 0; /* Position at the bottom */
+    border-top: 1px solid #555; /* Optional border for separation */
+    transform-origin: top; /* Pivot point for flip */
+    transform: rotateX(90deg); /* Initially rotated */
 }
 
 /* Triggering the flip animation */
 .flap.flip::before {
-    transform: rotateX(90deg);
+    transform: rotateX(90deg); /* Rotate upper half */
 }
 
 .flap.flip::after {
-    transform: rotateX(0);
+    transform: rotateX(0); /* Rotate lower half to show */
 }
-
 
 #explanationText {
-    font-family: Helvetica, DM-Sans, sans-serif;
-    font-size: 14px;
-    color: #000000; /* Black text */
-    text-align: center;
+    font-family: Helvetica, DM-Sans, sans-serif; /* Font styles */
+    font-size: 14px; /* Font size */
+    color: #000000; /* Text color (black) */
+    text-align: center; /* Centered text */
     display: none; /* Initially hidden */
-    border: none; /* Remove any borders */
-    line-height: 1.2;
-    padding: 10px 0; 
-    width: 100%; /* Full width to match the board */
-    max-width: 600px; /* Ensure it doesn't exceed the board width */
-    margin: 0 auto; /* Center it horizontally */
+    line-height: 1.2; /* Line height */
+    padding: 10px 0; /* Padding around text */
+    width: 100%; /* Full width */
+    max-width: 600px; /* Maximum width */
+    margin: 0 auto; /* Center horizontally */
     box-sizing: border-box; /* Include padding in width calculation */
 }
-
 
 /* @media (prefers-color-scheme: dark) {
     body {
