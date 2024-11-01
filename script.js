@@ -76,7 +76,7 @@ function createFlaps(text) {
         const flap = document.createElement("span");
         flap.classList.add("flap");
         flap.setAttribute("data-char", char);
-        flap.textContent = char; // Set the character for the flap
+        flap.textContent = ""; // Start with empty text for animation
         board.appendChild(flap);
     });
 }
@@ -88,10 +88,10 @@ function startFlipAnimation() {
 
     [...board.children].forEach((flap, index) => {
         setTimeout(() => {
-            flap.classList.add("flip");
+            flap.classList.add("flip"); // Add the flip class
             setTimeout(() => {
-                // After flip animation completes, show the character
-                flap.textContent = flap.getAttribute("data-char"); // Ensure the correct character is displayed
+                // Show the character after flip animation
+                flap.textContent = flap.getAttribute("data-char");
                 // Display explanation text after all flips
                 if (index === board.children.length - 1) {
                     board.style.display = "none"; // Hide the board
@@ -104,8 +104,8 @@ function startFlipAnimation() {
                         createFlaps(binaryString); // Recreate flaps
                     }, 6000);
                 }
-            }, 100);
-        }, index * 80); // Slightly slower timing
+            }, 100); // Delay for the text to show
+        }, index * 80); // Control the timing for each flap
     });
 }
 
