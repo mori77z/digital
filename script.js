@@ -60,3 +60,52 @@ arrowRight.forEach(arrow => {
         }
     });
 });
+
+// Der Binärcode für "Tuttofare"
+const binaryCode = "01010100 01110101 01110100 01110100 01101111 01100110 01100001 01110010 01100101"; 
+const finalText = "binary for Tuttofare (ital. Jack of all Trades)"; // Der finale Text
+
+// Anzeigetafel für den Binärcode erstellen
+const board = document.getElementById('board');
+const finalTextDiv = document.getElementById('finalText');
+
+// Funktion zum Umschalten der Klappenanimation für den Binärcode
+function flipFlaps(text) {
+    // Vorhandene Inhalte entfernen
+    board.innerHTML = '';
+    
+    text.split("").forEach((char) => {
+        const flap = document.createElement("div");
+        flap.classList.add("flap");
+        flap.dataset.char = char;
+        flap.innerText = char; // Text auf dem Flap setzen
+        board.appendChild(flap);
+        
+        // Animation hinzufügen
+        setTimeout(() => {
+            flap.classList.add("flip");
+            setTimeout(() => flap.classList.remove("flip"), 300);
+        }, 100); // Verzögerung für die Animation
+    });
+}
+
+// Funktion zum Anzeigen des endgültigen Textes
+function showFinalText() {
+    board.style.display = 'none'; // Anzeigetafel ausblenden
+    finalTextDiv.innerText = finalText; // Finalen Text setzen
+    finalTextDiv.style.display = 'block'; // Finalen Text anzeigen
+}
+
+// Startanimation
+flipFlaps(binaryCode); // Binärcode anzeigen
+
+// Wechsel zwischen Binärcode und endgültigem Text alle 10 Sekunden
+setInterval(() => {
+    if (board.innerHTML) {
+        showFinalText();
+    } else {
+        board.style.display = 'flex'; // Anzeigetafel wieder anzeigen
+        finalTextDiv.style.display = 'none'; // Finalen Text ausblenden
+        flipFlaps(binaryCode);
+    }
+}, 10000); // Alle 10 Sekunden
