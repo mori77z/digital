@@ -99,16 +99,20 @@ function showFinalText() {
 // Startanimation
 flipFlaps(binaryCode); // Binärcode anzeigen
 
-// Wechsel zwischen Binärcode und endgültigem Text alle 10 Sekunden
-setInterval(() => {
-    if (board.innerHTML) {
+// Wechsel zwischen Binärcode und endgültigem Text bei Scrollen
+let isTextVisible = false; // Status, ob der finale Text angezeigt wird
+
+window.addEventListener("scroll", () => {
+    if (!isTextVisible) {
         showFinalText();
+        isTextVisible = true; // Status aktualisieren
     } else {
         board.style.display = 'flex'; // Anzeigetafel wieder anzeigen
         finalTextDiv.style.display = 'none'; // Finalen Text ausblenden
-        flipFlaps(binaryCode);
+        flipFlaps(binaryCode); // Binärcode erneut anzeigen
+        isTextVisible = false; // Status aktualisieren
     }
-}, 10000); // Alle 10 Sekunden
+});
 
 // Optional: Bei Klick auf die Anzeigetafel die Animation sofort auslösen
 board.addEventListener("click", () => {
