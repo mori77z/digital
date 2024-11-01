@@ -188,78 +188,80 @@ nav a.active {
     transition: transform 0.3s ease-in-out;
 }
 
-#board-container {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
+    /* Centering and responsiveness for #board */
+    #board-container {
+        width: 100%;
+        justify-content: center;
+        padding: 10px;
+    }
 
-#board {
-    display: flex;
-    font-size: 2rem;
-    letter-spacing: 0.1em;
-    cursor: pointer;
-}
+    #board {
+        display: flex;
+        flex-wrap: wrap; /* Allows content to wrap to new rows */
+        font-size: 5vw; /* Responsive font size */
+        letter-spacing: 0.05em;
+        max-width: 90vw; /* Keeps board width contained */
+        justify-content: center;
+    }
 
-.flap {
-    position: relative;
-    display: inline-block;
-    width: 1em;
-    height: 1.2em;
-    overflow: hidden;
-    background: #000;
-    border: 1px solid #555;
-    margin: 0 0.05em;
-    color: #fff; /* White text */
-    text-align: center;
-}
+    .flap {
+        position: relative;
+        display: inline-block;
+        width: 1em;
+        height: 1.2em;
+        overflow: hidden;
+        background: #000;
+        border: 1px solid #555;
+        margin: 0 0.05em;
+        color: #fff;
+        text-align: center;
+    }
 
-/* Upper and lower halves of each flap */
-.flap::before,
-.flap::after {
-    content: attr(data-char);
-    position: absolute;
-    width: 100%;
-    height: 50%;
-    left: 0;
-    background: #000;
-    color: #fff;
-    overflow: hidden;
-    transition: transform 0.15s ease-out;
-}
+    /* Upper and lower halves of each flap */
+    .flap::before,
+    .flap::after {
+        content: attr(data-char);
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        left: 0;
+        background: #000;
+        color: #fff;
+        overflow: hidden;
+        transition: transform 0.15s ease-out;
+    }
 
-.flap::before {
-    top: 0;
-    border-bottom: 1px solid #555;
-    transform-origin: bottom;
-}
+    .flap::before {
+        top: 0;
+        border-bottom: 1px solid #555;
+        transform-origin: bottom;
+    }
 
-.flap::after {
-    bottom: 0;
-    border-top: 1px solid #555;
-    transform-origin: top;
-    transform: rotateX(90deg);
-}
+    .flap::after {
+        bottom: 0;
+        border-top: 1px solid #555;
+        transform-origin: top;
+        transform: rotateX(90deg);
+    }
 
-.flap.flip::before {
-    transform: rotateX(90deg);
-}
+    .flap.flip::before {
+        transform: rotateX(90deg);
+    }
 
-.flap.flip::after {
-    transform: rotateX(0);
-}
+    .flap.flip::after {
+        transform: rotateX(0);
+    }
 
-#explanationText {
-    font-family: Helvetica, DM-Sans, sans-serif;
-    font-size: 14px;
-    color: #000000;
-    text-align: center;
-    display: none;
-    border: none; /* Remove any borders */
-    line-height: 1.2;
-    padding: 10px 0; 
+    /* Explanation text centered and responsive */
+    #explanationText {
+        display: block;
+        width: 80vw;
+        margin: 0 auto;
+        font-size: 3vw;
+        color: #000000;
+        text-align: center;
+        padding: 10px 0;
+    }
 }
 
 
