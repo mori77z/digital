@@ -11,13 +11,13 @@ document.body.appendChild(zoomedContainer);
 // Function to open zoomed image
 function openZoomedImage(src) {
     zoomedImage.src = src;
-    zoomedImage.classList.add("active"); // Hinzufügen der aktiven Klasse für Animation
+    zoomedImage.classList.add("active"); // Add active class for animation
     zoomedContainer.classList.add("active");
 }
 
 // Function to close zoomed image
 function closeZoomedImage() {
-    zoomedImage.classList.remove("active"); // Entfernen der aktiven Klasse
+    zoomedImage.classList.remove("active"); // Remove active class
     zoomedContainer.classList.remove("active");
 }
 
@@ -61,60 +61,56 @@ arrowRight.forEach(arrow => {
     });
 });
 
-// Der Binärcode für "Tuttofare"
+// The binary code for "Tuttofare"
 const binaryCode = "01010100 01110101 01110100 01110100 01101111 01100110 01100001 01110010 01100101"; 
-const finalText = "binary for Tuttofare (ital. Jack of all Trades)"; // Der finale Text
+const finalText = "binary for Tuttofare (ital. Jack of all Trades)"; // The final text
 
-// Anzeigetafel für den Binärcode erstellen
+// Create display board for the binary code
 const board = document.getElementById('board');
 const finalTextDiv = document.getElementById('finalText');
 
-// Funktion zum Umschalten der Klappenanimation für den Binärcode
+// Function to toggle the flap animation for binary code
 function flipFlaps(text) {
-    // Vorhandene Inhalte entfernen
+    // Clear previous content
     board.innerHTML = '';
     
     text.split("").forEach((char) => {
         const flap = document.createElement("div");
         flap.classList.add("flap");
         flap.dataset.char = char;
-        flap.innerText = char; // Text auf dem Flap setzen
+        flap.innerText = char; // Set text on the flap
         board.appendChild(flap);
         
-        // Animation hinzufügen
+        // Add animation
         setTimeout(() => {
             flap.classList.add("flip");
             setTimeout(() => flap.classList.remove("flip"), 300);
-        }, 100); // Verzögerung für die Animation
+        }, 100); // Delay for the animation
     });
 }
 
-// Funktion zum Anzeigen des endgültigen Textes
+// Function to display the final text
 function showFinalText() {
-    board.style.display = 'none'; // Anzeigetafel ausblenden
-    finalTextDiv.innerText = finalText; // Finalen Text setzen
-    finalTextDiv.style.display = 'block'; // Finalen Text anzeigen
+    board.style.display = 'none'; // Hide the board
+    finalTextDiv.innerText = finalText; // Set final text
+    finalTextDiv.style.display = 'block'; // Show final text
 }
 
-// Startanimation
-flipFlaps(binaryCode); // Binärcode anzeigen
+// Start the animation
+flipFlaps(binaryCode); // Show binary code
 
-// Wechsel zwischen Binärcode und endgültigem Text bei Scrollen
-let isTextVisible = false; // Status, ob der finale Text angezeigt wird
-
-window.addEventListener("scroll", () => {
-    if (!isTextVisible) {
+// Switch between binary code and final text every 10 seconds
+setInterval(() => {
+    if (board.innerHTML) {
         showFinalText();
-        isTextVisible = true; // Status aktualisieren
     } else {
-        board.style.display = 'flex'; // Anzeigetafel wieder anzeigen
-        finalTextDiv.style.display = 'none'; // Finalen Text ausblenden
-        flipFlaps(binaryCode); // Binärcode erneut anzeigen
-        isTextVisible = false; // Status aktualisieren
+        board.style.display = 'flex'; // Show the board again
+        finalTextDiv.style.display = 'none'; // Hide final text
+        flipFlaps(binaryCode); // Show binary code again
     }
-});
+}, 10000); // Every 10 seconds
 
-// Optional: Bei Klick auf die Anzeigetafel die Animation sofort auslösen
+// Optional: Trigger the animation immediately on board click
 board.addEventListener("click", () => {
     flipFlaps(binaryCode);
 });
