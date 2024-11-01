@@ -188,7 +188,6 @@ nav a.active {
     transition: transform 0.3s ease-in-out;
 }
 
-/* Centering and responsiveness for #board */
 #board-container {
     width: 100%;
     justify-content: center;
@@ -254,15 +253,20 @@ nav a.active {
     transform: rotateX(0);
 }
 
-/* Explanation text centered and responsive */
+
 #explanationText {
-    display: block;
-    width: 80vw;
-    margin: 0 auto;
-    font-size: 3vw;
-    color: #000; /* Text color black */
+    font-family: Helvetica, DM-Sans, sans-serif;
+    font-size: 14px;
+    color: #000000; /* Black text */
     text-align: center;
-    padding: 10px 0;
+    display: none; /* Initially hidden */
+    border: none; /* Remove any borders */
+    line-height: 1.2;
+    padding: 10px 0; 
+    width: 100%; /* Full width to match the board */
+    max-width: 600px; /* Ensure it doesn't exceed the board width */
+    margin: 0 auto; /* Center it horizontally */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 
