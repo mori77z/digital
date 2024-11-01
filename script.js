@@ -109,3 +109,8 @@ setInterval(() => {
         flipFlaps(binaryCode);
     }
 }, 10000); // Alle 10 Sekunden
+
+// Optional: Bei Klick auf die Anzeigetafel die Animation sofort auslösen
+board.addEventListener("click", () => {
+    flipFlaps(binaryCode);
+});
