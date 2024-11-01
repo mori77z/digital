@@ -11,13 +11,13 @@ document.body.appendChild(zoomedContainer);
 // Function to open zoomed image
 function openZoomedImage(src) {
     zoomedImage.src = src;
-    zoomedImage.classList.add("active"); // Hinzufügen der aktiven Klasse für Animation
+    zoomedImage.classList.add("active"); // Adding active class for animation
     zoomedContainer.classList.add("active");
 }
 
 // Function to close zoomed image
 function closeZoomedImage() {
-    zoomedImage.classList.remove("active"); // Entfernen der aktiven Klasse
+    zoomedImage.classList.remove("active"); // Removing active class
     zoomedContainer.classList.remove("active");
 }
 
@@ -60,3 +60,63 @@ arrowRight.forEach(arrow => {
         }
     });
 });
+
+// JavaScript for Animation Logic
+const binaryString = "01010101 01101110 01100101 01101100 01101100 01100001 01101101";
+const explanationText = "Binary for Tuttofare (ital. Jack of all Trades)";
+
+const board = document.getElementById("board");
+const explanation = document.getElementById("explanationText");
+
+// Function to create flaps with binary characters
+function createFlaps(text) {
+    if (!board) return; // Ensure board exists
+    board.innerHTML = ""; // Clear the board
+    text.split("").forEach(char => {
+        const flap = document.createElement("span");
+        flap.classList.add("flap");
+        flap.setAttribute("data-char", char);
+        flap.textContent = char;
+        board.appendChild(flap);
+    });
+}
+
+// Function to start the flipping animation
+function startFlipAnimation() {
+    if (!board || !explanation) return; // Ensure elements exist
+    createFlaps(binaryString);
+
+    [...board.children].forEach((flap, index) => {
+        setTimeout(() => {
+            flap.classList.add("flip");
+            setTimeout(() => {
+                // Display explanation text after all flips
+                if (index === board.children.length - 1) {
+                    board.style.display = "none";
+                    explanation.style.display = "block";
+
+                    // Revert back to initial state after 6 seconds
+                    setTimeout(() => {
+                        explanation.style.display = "none";
+                        board.style.display = "flex";
+                        createFlaps(binaryString);
+                    }, 6000);
+                }
+            }, 100);
+        }, index * 80); // Slightly slower timing
+    });
+}
+
+// Restart animation on scrolling down from top
+let isScrolling = false; // Debounce scrolling to prevent repeated calls
+
+window.addEventListener("scroll", () => {
+    if (!isScrolling && window.scrollY === 0) {
+        isScrolling = true;
+        startFlipAnimation();
+        setTimeout(() => { isScrolling = false; }, 500); // Allow a delay before re-triggering
+    }
+});
+
+// Initial load animation
+startFlipAnimation();
