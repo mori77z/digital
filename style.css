@@ -295,9 +295,6 @@ nav a.active {
     .info h2 {
         font-size: 26px;
     }
-    .info p {
-        font-size: 18px;
-    }   
     .zoomed-image {
         max-width: 70vw;
         max-height: 70vw;
