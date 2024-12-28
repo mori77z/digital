@@ -312,7 +312,9 @@ nav a.active {
     .arrows-wrapper {
         padding: 10px 20px 0;
     }
-    
+    .discr-container {
+        padding-left: 20px;
+    }
     .zoomed-image {
         max-width: 70vw;
         max-height: 70vw;
